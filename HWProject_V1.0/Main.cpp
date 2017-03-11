@@ -1,12 +1,13 @@
 /*
  * Main.cpp
- * 日期：2017年3月9日
- * 描述：对文件进行描述吧
+ * 锟斤拷锟节ｏ拷2017锟斤拷3锟斤拷9锟斤拷
+ * 锟斤拷锟斤拷锟斤拷锟斤拷锟侥硷拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷
  */
 #include <iostream>
 
 using namespace std;
 
 int main(int argc, char* argv[]) {
+	cout << "this is a test!" << endl;
 	return 0;
 }
