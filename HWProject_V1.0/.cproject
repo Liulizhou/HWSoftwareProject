@@ -24,13 +24,13 @@
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.archiver.cygwin.base.697841972" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.cygwin.base"/>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.cygwin.exe.debug.1417019486" name="Cygwin C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.cygwin.exe.debug">
-								<option id="gnu.cpp.compiler.cygwin.exe.debug.option.optimization.level.1068466178" superClass="gnu.cpp.compiler.cygwin.exe.debug.option.optimization.level" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
-								<option id="gnu.cpp.compiler.cygwin.exe.debug.option.debugging.level.1741702550" superClass="gnu.cpp.compiler.cygwin.exe.debug.option.debugging.level" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.cygwin.exe.debug.option.optimization.level.1068466178" superClass="gnu.cpp.compiler.cygwin.exe.debug.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.cygwin.exe.debug.option.debugging.level.1741702550" superClass="gnu.cpp.compiler.cygwin.exe.debug.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.cygwin.242493302" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input.cygwin"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.compiler.cygwin.exe.debug.1299380892" name="Cygwin C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.cygwin.exe.debug">
-								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.cygwin.exe.debug.option.optimization.level.969857642" superClass="gnu.c.compiler.cygwin.exe.debug.option.optimization.level" valueType="enumerated"/>
-								<option id="gnu.c.compiler.cygwin.exe.debug.option.debugging.level.1035223500" superClass="gnu.c.compiler.cygwin.exe.debug.option.debugging.level" value="gnu.c.debugging.level.max" valueType="enumerated"/>
+								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.cygwin.exe.debug.option.optimization.level.969857642" superClass="gnu.c.compiler.cygwin.exe.debug.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
+								<option id="gnu.c.compiler.cygwin.exe.debug.option.debugging.level.1035223500" superClass="gnu.c.compiler.cygwin.exe.debug.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.max" valueType="enumerated"/>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.cygwin.1000567436" superClass="cdt.managedbuild.tool.gnu.c.compiler.input.cygwin"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.cygwin.exe.debug.1864789782" name="Cygwin C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.cygwin.exe.debug"/>
@@ -89,6 +89,7 @@
 					</folderInfo>
 				</configuration>
 			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
 		</cconfiguration>
 	</storageModule>
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
@@ -110,4 +111,6 @@
 		</scannerConfigBuildInfo>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="refreshScope"/>
+	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 </cproject>
