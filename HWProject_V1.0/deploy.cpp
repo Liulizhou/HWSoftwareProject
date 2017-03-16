@@ -1,5 +1,5 @@
 #include "deploy.h"
-#include <stdio.h>
+#include "Graph/HWGraph.h"
 
 //You need to complete the function 
 void deploy_server(char * topo[MAX_EDGE_NUM], int line_num,char * filename)

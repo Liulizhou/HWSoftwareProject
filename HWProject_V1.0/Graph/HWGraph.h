@@ -7,10 +7,9 @@
 #ifndef GRAPH_HWGRAPH_H_
 #define GRAPH_HWGRAPH_H_
 
-#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
 #include "../lib/lib_io.h"
-using namespace std;
-
 #define TRUE 1
 #define FALSE 0
 #define OK 1
@@ -60,11 +59,6 @@ typedef struct {
 	int netArcNum;	//网络链路数量
 	int csuArcNum; //消费链路数量
 }HWGraph;
-
-
-//访问标志数组
-int visited[MAX_VERTEX_NUM_NET + MAX_VERTEXT_NUM_CSU];
-
 
 //创建图
 Status CreateGraph(HWGraph *G, char* topo[MAX_EDGE_NUM], int line_num);
