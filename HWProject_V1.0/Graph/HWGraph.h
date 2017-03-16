@@ -44,7 +44,6 @@ typedef struct EBox {
 	int transferred; //ÍøÂçÂ·¾¶´«Êä´ø¿í
 }EBox;
 
-
 typedef struct VexBox {
 	VType data;
 	VexKind vexKind;
