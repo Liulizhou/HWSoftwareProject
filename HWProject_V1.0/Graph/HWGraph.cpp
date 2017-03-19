@@ -49,6 +49,7 @@ Status CreateGraph(HWGraph *G, char* topo[MAX_EDGE_NUM], int line_num) {
 		G->adjmulist[inetVex].firstarc = edgeBox;
 		G->adjmulist[jnetVex].firstarc = edgeBox;
 		index++;
+		//this is test
 	}
 	for (int i = 0; i < G->csuVNum; i++) {//消费者节点
         //通过节点的值获取节点在图中的编号
