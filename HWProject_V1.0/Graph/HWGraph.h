@@ -20,8 +20,6 @@
 #define MAX_VERTEX_NUM_NET 1000   //最大的网络节点数量
 #define MAX_VERTEXT_NUM_CSU 500   //最大的消费者节点数量
 
-//顶点数据类型
-typedef int VType;
 //状态返回
 typedef int Status;
 //访问标记
@@ -45,8 +43,9 @@ typedef struct EBox {
 }EBox;
 
 typedef struct VexBox {
-	VType data;
+	int data;
 	VexKind vexKind;
+	int degree;
 	EBox *firstarc;	//指向第一条依附于该顶点的边
 }VBox;
 
@@ -59,38 +58,48 @@ typedef struct {
 	int csuArcNum; //消费链路数量
 }HWGraph;
 
+/*
+ * description 初始化所有顶点的度
+ */
+Status initAllVexDegree(HWGraph* G);
+
+/*
+ * description 求给定顶点的度
+ */
+int getVexDegree(HWGraph* G, int v);
+
 //创建图
-Status CreateGraph(HWGraph *G, char* topo[MAX_EDGE_NUM], int line_num);
+Status CreateGraph(HWGraph* G, char* topo[MAX_EDGE_NUM], int line_num);
 
 //定位一个顶点值为图中的位置，否则返回-1
-int locateCSUVex(HWGraph* G,VType v);
+int locateCSUVex(HWGraph* G,int v);
 
 
 //返回顶点的值
-VType GetVex(HWGraph G,int v);
+int GetVex(HWGraph* G,int v);
 
 //赋值
-Status PutVex(HWGraph *G,VType v,VType value );
+Status PutVex(HWGraph* G,int v,int value );
 
 //插入一个顶点
-Status InsertVex(HWGraph *G,VType v);
+Status InsertVex(HWGraph* G,int v);
 
 //插入一段弧
-Status InsertArc(HWGraph *G,VType v,VType w);
+Status InsertArc(HWGraph* G,int v,int w);
 
 //返回顶点值为v的下一个邻接顶点的序号，否怎返回-1
-int FirstAdjVex(HWGraph G,VType v);
+int FirstAdjVex(HWGraph* G,int v);
 
 //返回顶点值为v相对于顶点值为w的下一个顶点的序号
-int NextAdjVex(HWGraph G,VType v,VType w);
+int NextAdjVex(HWGraph* G,int v,int w);
 
 
 //深度优先遍历
-Status DFSTraverse(HWGraph G);
+Status DFSTraverse(HWGraph* G);
 
 
 //递归实现深度遍历邻接点
-void DFS(HWGraph G,int i);
+void DFS(HWGraph* G,int i);
 
 #endif /* GRAPH_HWGRAPH_H_ */
 

@@ -9,7 +9,7 @@
 /*
 * @description:创建图(无向图/网)
 */
-Status CreateGraph(HWGraph *G, char* topo[MAX_EDGE_NUM], int line_num) {
+Status CreateGraph(HWGraph* G, char* topo[MAX_EDGE_NUM], int line_num) {
 	EBox *edgeBox;
     int index = 1; //读取topo的行数，这里 1 表示第一行，即topo[index - 1]
 	//读取网络节点数量，消费节点数量，网络链路数量， 消费链路数量（这里消费链路数量=消费节点数量）
@@ -18,11 +18,13 @@ Status CreateGraph(HWGraph *G, char* topo[MAX_EDGE_NUM], int line_num) {
 	//初始化所有顶点的值, 网络节点编号从0开始，消费节点编号从0开始
 	for (int i = 0; i < G->netVNum; i++) {
 		G->adjmulist[i].data = i;
+		G->adjmulist[i].degree = NOTUSED;
 		G->adjmulist[i].vexKind = NEWV;
 		G->adjmulist[i].firstarc = NULL;
 	}
 	for (int i = G->netVNum; i < G->netVNum + G->csuVNum; i++) {
 		G->adjmulist[i].data = i - G->netVNum;
+		G->adjmulist[i].degree = NOTUSED;
 		G->adjmulist[i].vexKind = CSUV;
 		G->adjmulist[i].firstarc = NULL;
 	}
@@ -78,13 +80,37 @@ Status CreateGraph(HWGraph *G, char* topo[MAX_EDGE_NUM], int line_num) {
 	return OK;
 }
 
+/*
+ * description 初始化所有顶点度，不包括消费者节点
+ */
+Status initAllVexDegree(HWGraph* G) {
+	for (int i = 0; i < G->netVNum; i++) { //遍历所有网络节点，并求度
+		G->adjmulist[i].degree = getVexDegree(G, i);
+	}
+	return OK;
+}
 
+/*
+ * description 求给定顶点的度
+ */
+int getVexDegree(HWGraph* G, int v) {
+	int degree = 0;
+	EBox* ebox = G->adjmulist[v].firstarc;
+	if (ebox != NULL) {
+		degree++;
+		if (ebox->ivex == v)
+			ebox = ebox->ilink;
+		else
+			ebox = ebox->jlink;
+	}
+	return degree;
+}
 
 /*
 * @description:定位一个顶点值在图中的位置,无则返回-1
 */
 
-int locateCSUVex(HWGraph* G,VType v) {
+int locateCSUVex(HWGraph* G,int v) {
 	return G->netVNum + v;
 }
 
@@ -92,7 +118,7 @@ int locateCSUVex(HWGraph* G,VType v) {
 /*
 * @description:返回顶点v的值
 */
-VType GetVex(HWGraph G,int v) {
+int GetVex(HWGraph* G,int v) {
 	return OK;
 }
 
@@ -100,7 +126,7 @@ VType GetVex(HWGraph G,int v) {
 /*
 * @description:对顶点值为v的顶点赋值为value
 */
-Status PutVex(HWGraph *G,VType v,VType value) {
+Status PutVex(HWGraph *G,int v,int value) {
 	return OK;
 }
 
@@ -108,7 +134,7 @@ Status PutVex(HWGraph *G,VType v,VType value) {
 /*
 * @description:返回顶点值为v的下一个邻接点的序号，否则返回-1
 */
-int FirstAdjVex(HWGraph G,VType v) {
+int FirstAdjVex(HWGraph* G,int v) {
 	return OK;
 }
 
@@ -116,7 +142,7 @@ int FirstAdjVex(HWGraph G,VType v) {
 /*
 * @description:返回顶点值为v相对于顶点值为w的下一个邻接顶点的序号
 */
-int NextAdjVex(HWGraph G,VType v,VType w) {
+int NextAdjVex(HWGraph* G,int v,int w) {
 	return OK;
 }
 
@@ -124,7 +150,7 @@ int NextAdjVex(HWGraph G,VType v,VType w) {
 /*
 * @description:插入一个顶点
 */
-Status InsertVex(HWGraph *G,VType v) {
+Status InsertVex(HWGraph* G,int v) {
 	return OK;
 }
 
@@ -132,7 +158,7 @@ Status InsertVex(HWGraph *G,VType v) {
 /*
 * @description:插入一段弧
 */
-Status InsertArc(HWGraph *G,VType v,VType w) {
+Status InsertArc(HWGraph* G,int v,int w) {
 
 	return OK;
 
@@ -143,7 +169,7 @@ Status InsertArc(HWGraph *G,VType v,VType w) {
 /*
  * @description:深度优先遍历图
  */
-Status DFSTraverse(HWGraph G) {
+Status DFSTraverse(HWGraph* G) {
 	return OK;
 }
 
@@ -151,7 +177,7 @@ Status DFSTraverse(HWGraph G) {
 /*
  * @description:递归实现深度优先遍历
  */
-void DFS(HWGraph G,int i) {
+void DFS(HWGraph* G,int i) {
 
 }
 
